@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:book_name",
+ "creation": "2024-05-03 11:43:15.514521",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "book_section",
+  "company",
+  "book_name",
+  "classification",
+  "category",
+  "cover_image",
+  "column_break_cska",
+  "language",
+  "number_of_pages",
+  "published",
+  "borrowable",
+  "stock_data_section",
+  "barcode",
+  "authors_data_section",
+  "authors",
+  "publishing_data_section",
+  "publisher",
+  "edition",
+  "column_break_qoqf",
+  "publishing_date",
+  "isbn"
+ ],
+ "fields": [
+  {
+   "fieldname": "book_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Book Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Link",
+   "label": "Publisher",
+   "options": "Publisher"
+  },
+  {
+   "fieldname": "isbn",
+   "fieldtype": "Data",
+   "label": "ISBN"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "number_of_pages",
+   "fieldtype": "Int",
+   "label": "Number of Pages"
+  },
+  {
+   "fieldname": "book_section",
+   "fieldtype": "Section Break",
+   "label": "Book"
+  },
+  {
+   "fieldname": "classification",
+   "fieldtype": "Link",
+   "label": "Classification",
+   "options": "Classification"
+  },
+  {
+   "depends_on": "eval: doc.classification != null",
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Category"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Barcode",
+   "label": "Barcode"
+  },
+  {
+   "fieldname": "cover_image",
+   "fieldtype": "Attach Image",
+   "label": "Cover Image"
+  },
+  {
+   "fieldname": "authors",
+   "fieldtype": "Table",
+   "label": "Authors",
+   "options": "Book Authors"
+  },
+  {
+   "fieldname": "edition",
+   "fieldtype": "Data",
+   "label": "Edition"
+  },
+  {
+   "fieldname": "publishing_data_section",
+   "fieldtype": "Section Break",
+   "label": "Publishing Data"
+  },
+  {
+   "fieldname": "publishing_date",
+   "fieldtype": "Date",
+   "label": "Publishing Date"
+  },
+  {
+   "fieldname": "authors_data_section",
+   "fieldtype": "Section Break",
+   "label": "Authors Data"
+  },
+  {
+   "fieldname": "stock_data_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
+  },
+  {
+   "fieldname": "column_break_cska",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qoqf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "borrowable",
+   "fieldtype": "Check",
+   "label": "Borrowable"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "image_field": "cover_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-31 17:43:31.792821",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

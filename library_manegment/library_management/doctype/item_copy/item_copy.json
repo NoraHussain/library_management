@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{reference_item}-{Copy}-{copy_identifier}",
+ "creation": "2024-06-20 23:50:53.086833",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_copy_section",
+  "company",
+  "select_doctype",
+  "reference_item",
+  "copy_identifier",
+  "copy_barcode",
+  "status",
+  "borrowable",
+  "section_break_yueo",
+  "location_column",
+  "rack",
+  "column_break_fssp",
+  "shelf",
+  "column_break_ebzq",
+  "area"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_doctype",
+   "fieldtype": "Select",
+   "label": "Select DocType",
+   "options": "Book\nGraduation Project"
+  },
+  {
+   "fieldname": "reference_item",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Item",
+   "options": "select_doctype"
+  },
+  {
+   "fieldname": "copy_identifier",
+   "fieldtype": "Data",
+   "label": "Copy Identifier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "copy_barcode",
+   "fieldtype": "Barcode",
+   "label": "Copy Barcode",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_copy_section",
+   "fieldtype": "Section Break",
+   "label": "Item Copy"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nOn Loan\nLost"
+  },
+  {
+   "default": "0",
+   "fieldname": "borrowable",
+   "fieldtype": "Check",
+   "label": "Borrowable"
+  },
+  {
+   "fieldname": "section_break_yueo",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "location_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack"
+  },
+  {
+   "fetch_from": "rack.shelf",
+   "fieldname": "shelf",
+   "fieldtype": "Link",
+   "label": "Shelf",
+   "options": "Shelf"
+  },
+  {
+   "fetch_from": "rack.area",
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "fieldname": "column_break_fssp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ebzq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-28 02:52:16.329166",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Item Copy",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
