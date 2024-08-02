@@ -11,6 +11,7 @@
   "person",
   "type",
   "item",
+  "item_copy",
   "date_of_borrowing",
   "expected_retrieval_date",
   "actual_retrieval_date",
@@ -88,12 +89,18 @@
    "fieldtype": "Dynamic Link",
    "label": "Person",
    "options": "role"
+  },
+  {
+   "fieldname": "item_copy",
+   "fieldtype": "Link",
+   "label": "Item Copy",
+   "options": "Item Copy"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-01 13:53:52.503829",
+ "modified": "2024-08-02 03:31:32.403878",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Item Borrowing",

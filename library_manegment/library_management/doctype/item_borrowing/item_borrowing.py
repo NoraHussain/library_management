@@ -8,6 +8,33 @@ from frappe.utils import add_to_date, now
 
 
 class ItemBorrowing(Document):
+    @frappe.whitelist()
+    def extend_borrowing(self, days_n):
+        new_date = add_to_date(self.expected_retrieval_date, days=days_n)
+        return new_date
+
+    @frappe.whitelist()
+    def change_copy_status (self, new_status):
+        frappe.db.set_value("Item Copy", self.item_copy , "status", new_status)
+
+    @frappe.whitelist()
+    def create_damage (self, description):
+        new_damage = frappe.new_doc("Damage")
+        new_damage.company = self.company
+        new_damage.item_borrowing = self.name
+        new_damage.description_of_the_damage = description
+        new_damage.insert()
+
+        copy_price = frappe.db.get_value("Item Copy", self.item_copy , "price")
+
+        new_fine = frappe.new_doc("Fine")
+        new_fine.company = self.company
+        new_fine.item_borrowing = self.name
+        new_fine.fine_type = "Damage"
+        new_fine.damage = new_damage.name
+        new_fine.fine_amount = copy_price
+        new_fine.insert()
+
     def validate (self):
         pass
 
@@ -38,5 +65,4 @@ class ItemBorrowing(Document):
             frappe.throw("تجاوز الحد المسموح")
         else:
             self.status = "In Progress"
-
-
+            frappe.db.set_value("Item Copy", self.item_copy , "status", "Unavailable")
